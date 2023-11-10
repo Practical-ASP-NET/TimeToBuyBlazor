@@ -76,8 +76,8 @@ a:hover, a:focus {
 }
 
 .card {
-    flex: 0 0 calc(15.83% - 0.83em);
-    max-width: calc(15.83% - 0.83em);
+    flex: 0 0 100%;
+    max-width: 100%;
     background: #fff;
     margin-bottom: 2em;
     padding: 1em;
@@ -86,20 +86,29 @@ a:hover, a:focus {
 }
 
 /* Styles for screens with max width of 768px */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
     .card {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
+        flex: 0 0 calc(50% - 1em);
+        max-width: calc(50% - 1em);
+    }  
 }
 
 /* Styles for screens with max width of 768px */
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 992px) {
     .card {
         flex: 0 0 calc(25% - 0.75em);
         max-width: calc(25% - 0.75em);
     }
 }
+
+/* Styles for screens with max width of 768px */
+@media screen and (min-width: 1200px) {
+    .card {
+        flex: 0 0 calc(15.83% - 0.83em);
+        max-width: calc(15.83% - 0.83em);
+    }
+}
+
 
 .card-img {
     width: 100%;
