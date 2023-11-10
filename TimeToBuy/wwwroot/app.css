@@ -76,8 +76,8 @@ a:hover, a:focus {
 }
 
 .card {
-    flex: 0 0 calc(25% - 0.75em);
-    max-width: calc(25% - 0.75em);
+    flex: 0 0 calc(15.83% - 0.83em);
+    max-width: calc(15.83% - 0.83em);
     background: #fff;
     margin-bottom: 2em;
     padding: 1em;
@@ -90,6 +90,14 @@ a:hover, a:focus {
     .card {
         flex: 0 0 100%;
         max-width: 100%;
+    }
+}
+
+/* Styles for screens with max width of 768px */
+@media screen and (max-width: 1024px) {
+    .card {
+        flex: 0 0 calc(25% - 0.75em);
+        max-width: calc(25% - 0.75em);
     }
 }
 
