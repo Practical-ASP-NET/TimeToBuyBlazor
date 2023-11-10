@@ -2,3 +2,5 @@
 debug/
 .idea
 .vs
+*.db-shm
+*.db-wal
