@@ -1,16 +1,32 @@
 ﻿@page "/"
+@using TimeToBuy.Data
+@using Microsoft.EntityFrameworkCore
+@inject ApplicationDbContext Db
 
 <PageTitle>Products</PageTitle>
 
 <section class="card-list product-list">
-    <div class="card">
-        <div class="card-content">
-            <img src="https://via.placeholder.com/400" alt="Spider-man 2 cover image" class="card-img"/>
-            <h2 class="title">Spider-man 2</h2>
-            <p>Bigger, better, more expensive</p>
+    @foreach (var product in _products)
+    {
+        <div class="card">
+            <div class="card-content">
+                <img src="https://via.placeholder.com/400" alt="@product.Name cover image" class="card-img"/>
+                <h2 class="title">@product.Name</h2>
+                <p>@product.ShortDescription</p>
+            </div>
+            <div class="card-footer">
+                <h3 class="price">@product.CurrentPrice.ToString("C")</h3>
+            </div>
         </div>
-        <div class="card-footer">
-            <h3 class="price">$79.99</h3>
-        </div>
-    </div>
+    }
 </section>
+
+@code {
+    private List<Product>? _products;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _products = await Db.Product.ToListAsync();
+    }
+
+}
