@@ -29,6 +29,10 @@ namespace TimeToBuy.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -47,6 +51,7 @@ namespace TimeToBuy.Migrations
                             Id = 1,
                             CurrentPrice = 49.99m,
                             Description = "Geralt of Rivia, a lone monster hunter, struggles to find his place in a world where people often prove more wicked than beasts.",
+                            ImageUrl = "https://via.placeholder.com/400",
                             Name = "The Witcher 3: Wild Hunt",
                             ShortDescription = "Role-playing game"
                         },
@@ -55,6 +60,7 @@ namespace TimeToBuy.Migrations
                             Id = 2,
                             CurrentPrice = 59.99m,
                             Description = "Los Santos: a sprawling sun-soaked metropolis full of self-help gurus, starlets, and fading celebrities, once the envy of the Western world, now struggling to stay afloat in an era of economic uncertainty and cheap reality TV.",
+                            ImageUrl = "https://via.placeholder.com/400",
                             Name = "Grand Theft Auto V",
                             ShortDescription = "Action-adventure game"
                         },
@@ -63,6 +69,7 @@ namespace TimeToBuy.Migrations
                             Id = 3,
                             CurrentPrice = 59.99m,
                             Description = "America, 1899. The end of the wild west era has begun. After a robbery goes badly wrong in the western town of Blackwater, Arthur Morgan and the Van der Linde gang are forced to flee.",
+                            ImageUrl = "https://via.placeholder.com/400",
                             Name = "Red Dead Redemption 2",
                             ShortDescription = "Adventure game"
                         },
@@ -71,6 +78,7 @@ namespace TimeToBuy.Migrations
                             Id = 4,
                             CurrentPrice = 59.99m,
                             Description = "FIFA 22 brings the game even closer to the real thing with fundamental gameplay advances and a new season of innovation across every mode.",
+                            ImageUrl = "https://via.placeholder.com/400",
                             Name = "FIFA 22",
                             ShortDescription = "Sports game"
                         },
@@ -79,6 +87,7 @@ namespace TimeToBuy.Migrations
                             Id = 5,
                             CurrentPrice = 26.95m,
                             Description = "Minecraft is a game about placing blocks and going on adventures. Build anything you can imagine with unlimited resources in Creative mode, or go on grand expeditions in Survival across mysterious lands and into the depths of your own worlds.",
+                            ImageUrl = "https://via.placeholder.com/400",
                             Name = "Minecraft",
                             ShortDescription = "Sandbox game"
                         },
@@ -87,6 +96,7 @@ namespace TimeToBuy.Migrations
                             Id = 6,
                             CurrentPrice = 59.99m,
                             Description = "Call of Duty: Warzone is a free-to-play battle royale video game released on March 10, 2020, for PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, and Microsoft Windows.",
+                            ImageUrl = "https://via.placeholder.com/400",
                             Name = "Call Of Duty: Warzone",
                             ShortDescription = "Shooter game"
                         },
@@ -95,6 +105,7 @@ namespace TimeToBuy.Migrations
                             Id = 7,
                             CurrentPrice = 59.99m,
                             Description = "Experience survival horror like never before in Resident Evil Village, the eighth major installment in the genre-defining Resident Evil franchise. Set a few years after the horrifying events in the critically acclaimed Resident Evil 7 biohazard, the all-new storyline brings Ethan Winters to a remote snow-capped village filled with a diverse cast of terrifying enemies.",
+                            ImageUrl = "https://via.placeholder.com/400",
                             Name = "Resident Evil Village",
                             ShortDescription = "Horror game"
                         },
@@ -103,6 +114,7 @@ namespace TimeToBuy.Migrations
                             Id = 8,
                             CurrentPrice = 59.99m,
                             Description = "Cyberpunk 2077 is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality.",
+                            ImageUrl = "https://via.placeholder.com/400",
                             Name = "Cyberpunk 2077",
                             ShortDescription = "Role-playing game"
                         },
@@ -111,6 +123,7 @@ namespace TimeToBuy.Migrations
                             Id = 9,
                             CurrentPrice = 24.99m,
                             Description = "Battle out of hell in Hades, recipient of more than 50 Game of the Year awards! In this god-like rogue-like dungeon crawler, you'll wield the powers and mythic weapons of Olympus to break free from the clutches of the god of the dead himself, while growing stronger and unraveling more of the story with each unique escape attempt.",
+                            ImageUrl = "https://via.placeholder.com/400",
                             Name = "Hades",
                             ShortDescription = "Action game"
                         },
@@ -119,6 +132,7 @@ namespace TimeToBuy.Migrations
                             Id = 10,
                             CurrentPrice = 59.99m,
                             Description = "Escape to a deserted island and create your own paradise as you explore, create, and customize in the Animal Crossing: New Horizons game. Your island getaway has a wealth of natural resources that can be used to craft everything from tools to creature comforts.",
+                            ImageUrl = "https://via.placeholder.com/400",
                             Name = "Animal Crossing: New Horizons",
                             ShortDescription = "Simulation game"
                         });

@@ -10,7 +10,7 @@ using TimeToBuy.Data;
 namespace TimeToBuy.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231110171400_seed product images")]
+    [Migration("20231110230859_seed product images")]
     partial class seedproductimages
     {
         /// <inheritdoc />
