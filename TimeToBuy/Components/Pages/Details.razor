@@ -1,10 +1,31 @@
 ﻿@page "/Details/{id:int}"
+@using TimeToBuy.Data
+@inject ApplicationDbContext Db
 
-<h3>Details (@Id)</h3>
+<div class="container">
+    <div class="left-column">
+        <img src="@_product.ImageUrl" alt="Product Image" />
+    </div>
+    <div class="right-column">
+        <div class="main-content">
+            <h1>@_product.Name</h1>
+            <p>@_product.Description</p>
+        </div>
+        <div class="checkout-box">
+            <span>Checkout will go here, shortly</span>
+        </div>
+    </div>
+</div>
 
 @code {
-    
+    private Product? _product;
+
     [Parameter] 
     public int Id { get; set; }
-    
+
+    protected override async Task OnInitializedAsync()
+    {
+        _product = await Db.Product.FindAsync(Id);
+    }
+
 }

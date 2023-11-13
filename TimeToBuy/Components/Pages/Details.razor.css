@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Column 1 for the image */
+.left-column {
+    width: 400px;
+    padding: 1em;
+}
+
+/* Column 2 for the main content and checkout */
+.right-column {
+    flex: 2;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+/* For the main content */
+.main-content {
+    flex: 3;
+}
+
+/* For the checkout area */
+.checkout-box {
+    flex: 1;
+    background-color: #f6f6f6;
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Styles for screens with max width of 768px */
+@media screen and (min-width: 992px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .right-column {
+        flex-direction: row;
+    }
+}
