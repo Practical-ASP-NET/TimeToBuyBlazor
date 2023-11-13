@@ -5,6 +5,11 @@
 
 <PageTitle>Products</PageTitle>
 
+<form method="GET">
+    <input type="text" name="searchTerm" value="@SearchTerm"/>
+    <button type="submit">Search</button>
+</form>
+
 <section class="card-list product-list">
     @foreach (var product in _products)
     {
@@ -24,9 +29,14 @@
 @code {
     private List<Product>? _products;
 
+    [SupplyParameterFromQuery] 
+    public string SearchTerm { get; set; }
+    
     protected override async Task OnInitializedAsync()
     {
-        _products = await Db.Product.ToListAsync();
+        _products = await Db.Product
+            .Where(x=>string.IsNullOrEmpty(x.Name) || x.Name.ToLower().StartsWith(SearchTerm.ToLower()))
+            .ToListAsync();
     }
 
 }
