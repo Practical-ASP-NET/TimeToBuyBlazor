@@ -49,7 +49,7 @@ a:hover, a:focus {
 
 /* Button styles */
 
-.btn {
+button{
     display: inline-block;
     font-size: 1em;
     color: #fff;
@@ -63,7 +63,7 @@ a:hover, a:focus {
     transition: background 0.3s ease-in-out;
 }
 
-.btn:hover {
+button:hover {
     background-color: #004499;
 }
 

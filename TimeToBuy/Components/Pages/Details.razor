@@ -13,16 +13,24 @@
             <p>@_product.Description</p>
         </div>
         <div class="checkout-box">
-            <form @formname="AddToCart" @onsubmit="AddToCart" method="post">
-                <button type="submit">Add to Cart</button>
-                <AntiforgeryToken />
-            </form>
+            @if (_itemAddedToCart)
+            {
+                <h4>Item added to cart</h4>
+            }
+            else
+            {
+                <form @formname="AddToCart" @onsubmit="AddToCart" method="post">
+                    <button type="submit">Add to Cart</button>
+                    <AntiforgeryToken/>
+                </form>
+            }
         </div>
     </div>
 </div>
 
 @code {
     private Product? _product;
+    private bool _itemAddedToCart;
 
     [Parameter] 
     public int Id { get; set; }
@@ -35,6 +43,7 @@
     private void AddToCart()
     {
         CartService.AddToCart(new AddItemToCartCommand(_product.Id, _product.CurrentPrice));
+        _itemAddedToCart = true;
     }
 
 }
