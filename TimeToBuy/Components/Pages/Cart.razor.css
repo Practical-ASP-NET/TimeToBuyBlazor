@@ -1,0 +1,25 @@
+#shoppingCart
+{
+    display: flex;
+    gap: 2em;
+    align-items: flex-start;
+}
+
+#lineItems {
+    background-color: white;
+    flex-grow: 3;   
+}
+
+.line {    
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #d7d7d7;
+    padding: 1em;
+}
+
+#summary {    
+    background-color: white;
+    box-shadow: #3f3f3f;
+    padding: 1em;
+    font-size: 1.2em;
+}

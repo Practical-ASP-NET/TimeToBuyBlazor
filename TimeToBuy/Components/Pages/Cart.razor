@@ -8,12 +8,27 @@
 }
 else
 {
-    <ul>
-        @foreach (var item in CartDetails.Items)
-        {
-            <li>@item.ProductName (@item.Quantity)</li>
-        }
-    </ul>
+    <h2>Shopping Basket</h2>
+    
+    <section id="shoppingCart">
+        <section id="lineItems">
+            @foreach (var item in CartDetails.Items)
+            {
+                <div class="line">
+                    <div>
+                        <h4>@item.ProductName</h4>
+                        <p>Qty: @item.Quantity</p>
+                    </div>
+                    <div>
+                        <h3>@item.LinePrice.ToString("C")</h3>
+                    </div>
+                </div>
+            }
+        </section>
+        <section id="summary">
+            Subtotal (@CartDetails.Items.Count items): <strong>@CartDetails.TotalPrice.ToString("C")</strong>
+        </section>
+    </section>
 }
 
 
