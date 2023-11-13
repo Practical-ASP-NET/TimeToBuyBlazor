@@ -13,7 +13,7 @@
 <section class="card-list product-list">
     @foreach (var product in _products)
     {
-        <div class="card">
+        <a href="/details/@product.Id" class="card">
             <div class="card-content">
                 <img src="@product.ImageUrl" alt="@product.Name cover image" class="card-img"/>
                 <h2 class="title">@product.Name</h2>
@@ -22,7 +22,7 @@
             <div class="card-footer">
                 <h3 class="price">@product.CurrentPrice.ToString("C")</h3>
             </div>
-        </div>
+        </a>
     }
 </section>
 
