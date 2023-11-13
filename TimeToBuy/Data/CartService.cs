@@ -12,19 +12,18 @@ public class CartService
 
     public void AddToCart(AddItemToCartCommand command)
     {
-        var cart = Session?.Get<Cart>("Cart");
-        
-        if (cart == null)
-        {
-            cart = new Cart();
-            Session?.Set("Cart", cart);
-        }
-        
+        var cart = Session?.Get<Cart>("Cart") ?? new Cart();
         cart.Handle(command);
         Session?.Set("Cart", cart);
     }
+
+    public Cart? GetCart()
+    {
+        var cart = Session?.Get<Cart>("Cart");
+        return cart;
+    }
 }
 
-public record AddItemToCartCommand(int ProductId, decimal Price)
+public record AddItemToCartCommand(int ProductId, decimal Price, string ProductName)
 {
 }
