@@ -1,5 +1,6 @@
-main {
-    
+h1 a {
+    color: #ffffff;
+    text-decoration: none; /* remove underline */
 }
 
 nav {
