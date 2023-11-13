@@ -42,7 +42,7 @@
 
     private void AddToCart()
     {
-        CartService.AddToCart(new AddItemToCartCommand(_product.Id, _product.CurrentPrice));
+        CartService.AddToCart(new AddItemToCartCommand(_product.Id, _product.CurrentPrice, _product.Name));
         _itemAddedToCart = true;
     }
 

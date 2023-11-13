@@ -1,0 +1,28 @@
+﻿@page "/Cart"
+@using TimeToBuy.Data
+@inject CartService CartService
+
+@if (CartDetails == null)
+{
+    <p>No items in cart, sorry!</p>
+}
+else
+{
+    <ul>
+        @foreach (var item in CartDetails.Items)
+        {
+            <li>@item.ProductName (@item.Quantity)</li>
+        }
+    </ul>
+}
+
+
+@code {
+    private Data.Cart? CartDetails;
+
+    protected override async Task OnInitializedAsync()
+    {
+        CartDetails = CartService.GetCart();
+    }
+
+}
