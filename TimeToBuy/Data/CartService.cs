@@ -24,6 +24,3 @@ public class CartService
     }
 }
 
-public record AddItemToCartCommand(int ProductId, decimal Price, string ProductName)
-{
-}
