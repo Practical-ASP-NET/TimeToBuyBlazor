@@ -13,7 +13,6 @@
             <p>@_product.Description</p>
         </div>
         <div class="checkout-box">
-            <span>Checkout will go here, shortly</span>
             <form @formname="AddToCart" @onsubmit="AddToCart" method="post">
                 <button type="submit">Add to Cart</button>
                 <AntiforgeryToken />
