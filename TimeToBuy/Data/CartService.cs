@@ -19,7 +19,20 @@ public class CartService
 
     public Cart? GetCart()
     {
-        var cart = Session?.Get<Cart>("Cart");
+        var cart = Session?.Get<Cart>("Cart") ?? new Cart
+        {
+            Items = new List<CartItem>
+            {
+                new CartItem
+                {
+                    Quantity = 4,
+                    ProductId = 1,
+                    ProductName = "Test product",
+                    UnitPrice = 100,
+                    LinePrice = 100*4
+                }
+            }
+        };
         return cart;
     }
 }
