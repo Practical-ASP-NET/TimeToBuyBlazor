@@ -1,7 +1,12 @@
-.top, .content {
-    padding: 1em;
+main {
+    
 }
 
+nav {
+    background-color: #3f3f3f;
+    padding: 0.2em 1em 0.2em 1em;
+    color: white;
+}
 
 #blazor-error-ui {
     background: lightyellow;

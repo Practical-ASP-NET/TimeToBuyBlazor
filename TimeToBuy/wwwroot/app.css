@@ -85,6 +85,38 @@ a:hover, a:focus {
     box-sizing: border-box;
 }
 
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 1em auto;
+    max-width: 800px;
+}
+
+.search-form input {
+    flex: 1;
+    height: 35px;
+    padding: 0 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.search-form button {
+    height: 35px;
+    padding: 0 20px;
+    border: none;
+    background-color: #6165c9;
+    color: white;
+    font-size: 16px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
 /* Styles for screens with max width of 768px */
 @media screen and (min-width: 768px) {
     .card {
