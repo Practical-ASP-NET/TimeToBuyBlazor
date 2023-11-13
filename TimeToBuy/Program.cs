@@ -12,7 +12,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite
 
 builder.Services.AddSession();
 
-builder.Services.AddScoped<ShoppingCart>();
+builder.Services.AddScoped<CartService>();
 
 var app = builder.Build();
 

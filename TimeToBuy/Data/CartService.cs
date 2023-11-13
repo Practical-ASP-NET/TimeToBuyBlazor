@@ -2,12 +2,12 @@
 
 namespace TimeToBuy.Data;
 
-public class ShoppingCart
+public class CartService
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
     private ISession? _session => _httpContextAccessor?.HttpContext?.Session;
 
-    public ShoppingCart(IHttpContextAccessor httpContextAccessor)
+    public CartService(IHttpContextAccessor httpContextAccessor)
     {
         _httpContextAccessor = httpContextAccessor;
     }
