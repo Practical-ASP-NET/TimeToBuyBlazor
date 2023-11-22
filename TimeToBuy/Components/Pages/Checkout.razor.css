@@ -1,0 +1,17 @@
+﻿.checkout {
+    max-width: 600px;
+}
+
+label {    
+    display: flex;
+    flex-direction: column;        
+}
+
+::deep input {
+    padding: 0.4em;
+    font-size:  1em;
+}
+
+::deep input.invalid {
+    border-color: red;
+}
