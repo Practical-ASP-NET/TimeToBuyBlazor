@@ -4,12 +4,12 @@ namespace TimeToBuy.Data;
 
 public record CartCheckoutInfo
 {
-    public Address BillingAddress { get; set; }
+    public Address DeliveryAddress { get; set; } = new Address();
 
     [Required] public string CardNumber { get; set; }
     [Required] public string CardHolderName { get; set; }
     [Required] public string CardSecurityNumber { get; set; }
-    [Required] public DateTime CardExpiration { get; set; }
+    public DateTime CardExpiration { get; set; } = DateTime.Now.Date;
 
     public record Address
     {
