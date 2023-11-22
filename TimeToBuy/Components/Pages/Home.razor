@@ -1,4 +1,5 @@
 ﻿@page "/"
+@attribute [StreamRendering]
 @using TimeToBuy.Data
 @using Microsoft.EntityFrameworkCore
 @inject ApplicationDbContext Db
@@ -11,31 +12,39 @@
 </form>
 
 <section class="card-list product-list">
-    @foreach (var product in _products)
+    @if (_products == null)
     {
-        <div class="card">
-            <div class="card-content">
-                <img src="@product.ImageUrl" alt="@product.Name cover image" class="card-img"/>
-                <h2 class="title">@product.Name</h2>
-                <p>@product.ShortDescription</p>
+        <p>Loading...</p>
+    }
+    else
+    {
+        @foreach (var product in _products)
+        {
+            <div class="card">
+                <div class="card-content">
+                    <img src="@product.ImageUrl" alt="@product.Name cover image" class="card-img"/>
+                    <h2 class="title">@product.Name</h2>
+                    <p>@product.ShortDescription</p>
+                </div>
+                <div class="card-footer">
+                    <h3 class="price">@product.CurrentPrice.ToString("C")</h3>
+                </div>
             </div>
-            <div class="card-footer">
-                <h3 class="price">@product.CurrentPrice.ToString("C")</h3>
-            </div>
-        </div>
+        }
     }
 </section>
 
 @code {
     private List<Product>? _products;
 
-    [SupplyParameterFromQuery] 
-    public string? SearchTerm { get; set; }
-    
+    [SupplyParameterFromQuery] public string? SearchTerm { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
+        await Task.Delay(1000);
+
         _products = await Db.Product
-            .Where(x=>string.IsNullOrEmpty(SearchTerm) || x.Name.ToLower().StartsWith(SearchTerm.ToLower()))
+            .Where(x => string.IsNullOrEmpty(SearchTerm) || x.Name.ToLower().StartsWith(SearchTerm.ToLower()))
             .ToListAsync();
     }
 
