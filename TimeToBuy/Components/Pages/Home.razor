@@ -1,4 +1,5 @@
 ﻿@page "/"
+@attribute [StreamRendering]
 @using TimeToBuy.Data
 @using Microsoft.EntityFrameworkCore
 @inject ApplicationDbContext Db
@@ -11,6 +12,12 @@
 </form>
 
 <section class="card-list product-list">
+    @if (_products == null)
+        {
+            <p>Loading...</p>
+        }
+        else
+        {
     @foreach (var product in _products)
     {
         <a href="/details/@product.Id" class="card">
@@ -23,7 +30,7 @@
                 <h3 class="price">@product.CurrentPrice.ToString("C")</h3>
             </div>
         </a>
-    }
+    }}
 </section>
 
 @code {
@@ -34,6 +41,8 @@
     
     protected override async Task OnInitializedAsync()
     {
+        await Task.Delay(1000);
+
         _products = await Db.Product
             .Where(x=>string.IsNullOrEmpty(SearchTerm) || x.Name.ToLower().StartsWith(SearchTerm.ToLower()))
             .ToListAsync();
