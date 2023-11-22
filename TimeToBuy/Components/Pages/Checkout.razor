@@ -1,13 +1,65 @@
 ﻿@page "/Checkout"
+@using TimeToBuy.Data
 
 <h1>Checkout</h1>
 
-<EditForm>
-    <InputText></InputText>
+<EditForm Model="@Info" FormName="Checkout" OnValidSubmit="@HandleSubmit">
+    <DataAnnotationsValidator />
+    <section class="form-section">
+        <h2>Delivery Address</h2>
+        <label>
+            Customer Name
+            <InputText @bind-Value="@Info.DeliveryAddress.BuyerName"></InputText>
+        </label>
+        <label>
+            Address 1
+            <InputText @bind-Value="@Info.DeliveryAddress.Line1"></InputText>
+        </label>
+        <label>
+            Address 2
+            <InputText @bind-Value="@Info.DeliveryAddress.Line2"></InputText>
+        </label>
+        <label>
+            City
+            <InputText @bind-Value="@Info.DeliveryAddress.City"></InputText>
+        </label>
+        <label>
+            Postal Code
+            <InputText @bind-Value="@Info.DeliveryAddress.PostCode"></InputText>
+        </label>
+    </section>
+    <section class="form-section">
+        <h2>Card Details</h2>
+        <label>
+            Card Holder Name
+            <InputText @bind-Value="@Info.CardHolderName"></InputText>
+        </label>
+        <label>
+            Card Number
+            <InputText @bind-Value="@Info.CardNumber"></InputText>
+        </label>
+        <label>
+            Security Code
+            <InputText @bind-Value="@Info.CardSecurityNumber"></InputText>
+        </label>
+        <label>
+            Card Expiry
+            <InputDate Type="InputDateType.Month" @bind-Value="@Info.CardExpiration"></InputDate>
+        </label>
+
+    </section>
+    <ValidationSummary/>
+    <button type="submit">Place Order</button>
 </EditForm>
 
 @code {
-    
-    
-    
+
+    [SupplyParameterFromForm] public CartCheckoutInfo Info { get; set; } = new();
+
+
+    private void HandleSubmit(EditContext obj)
+    {
+        Console.WriteLine("Submitting");
+    }
+
 }
