@@ -30,6 +30,9 @@
     padding: 1em;
     border: 1px solid #ddd;
     border-radius: 8px;
+    display: flex;
+    gap: 1.2em;
+    align-items: center;
 }
 
 /* Styles for screens with max width of 768px */
