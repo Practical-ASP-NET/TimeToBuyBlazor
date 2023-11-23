@@ -30,8 +30,12 @@
     padding: 1em;
     border: 1px solid #ddd;
     border-radius: 8px;
+    display: flex;
+    gap: 1.2em;
+    align-items: center;
 }
 
+/* Styles for screens with max width of 768px */
 /* Styles for screens with max width of 768px */
 @media screen and (min-width: 992px) {
     .container {
@@ -40,5 +44,10 @@
 
     .right-column {
         flex-direction: row;
+    }
+
+    .checkout-box {
+        align-items: start;
+        flex-direction: column;
     }
 }
