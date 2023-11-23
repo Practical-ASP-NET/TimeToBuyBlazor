@@ -2,10 +2,11 @@
 @using TimeToBuy.Data
 @inject ApplicationDbContext Db
 @inject CartService CartService
+@attribute [StreamRendering]
 
 <div class="container">
     <div class="left-column">
-        <img src="@_product.ImageUrl" alt="Product Image" />
+        <img src="@_product.ImageUrl" alt="Product Image"/>
     </div>
     <div class="right-column">
         <div class="main-content">
@@ -13,37 +14,60 @@
             <p>@_product.Description</p>
         </div>
         <div class="checkout-box">
-            @if (_itemAddedToCart)
-            {
-                <h4>Item added to cart</h4>
-            }
-            else
-            {
-                <form @formname="AddToCart" @onsubmit="AddToCart" method="post">
-                    <button type="submit">Add to Cart</button>
-                    <AntiforgeryToken/>
-                </form>
-            }
+            <form @formname="AddToCart" @onsubmit="AddToCart" method="post" data-enhance>
+
+                @if (_addingToCart)
+                {
+                    <div class="cartButton">
+                        <span class="loader"></span>
+                    </div>
+                }
+                else
+                {
+                    <button type="submit">
+                        <span>Add to Cart</span>
+                    </button>
+                }
+                @if (_quantityInCart > 0)
+                {
+                    <span>@_quantityInCart in <a href="/cart">cart</a></span>
+                }
+                <AntiforgeryToken/>
+            </form>
         </div>
     </div>
 </div>
 
 @code {
     private Product? _product;
-    private bool _itemAddedToCart;
+    private bool _addingToCart;
 
-    [Parameter] 
-    public int Id { get; set; }
+    private int _quantityInCart;
+
+    [Parameter] public int Id { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         _product = await Db.Product.FindAsync(Id);
     }
 
-    private void AddToCart()
+    protected override void OnInitialized()
+    {
+        var cart = CartService.GetCart();
+        _quantityInCart = cart?.Items.SingleOrDefault(x => x.ProductId == Id)?.Quantity ?? 0;
+    }
+
+    private async Task AddToCart()
     {
         CartService.AddToCart(new AddItemToCartCommand(_product.Id, _product.CurrentPrice, _product.Name));
-        _itemAddedToCart = true;
+
+        _addingToCart = true;
+
+        await Task.Delay(TimeSpan.FromSeconds(1));
+        _addingToCart = false;
+
+        _quantityInCart++;
+
     }
 
 }

@@ -30,8 +30,43 @@
     padding: 1em;
     border: 1px solid #ddd;
     border-radius: 8px;
+    display: flex;
+    gap: 1.2em;
+    align-items: center;    
 }
 
+button, .cartButton {
+    width: 9em;
+    height: 3em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    font-size: 1em;
+    color: #fff;
+    background-color: #0077cc;   
+    margin: 10px 2px;
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.loader {    
+    border: 2px solid #f3f3f3; /* Light grey */
+    border-top: 2px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Styles for screens with max width of 768px */
 /* Styles for screens with max width of 768px */
 @media screen and (min-width: 992px) {
     .container {
@@ -40,5 +75,10 @@
 
     .right-column {
         flex-direction: row;
+    }
+
+    .checkout-box {
+        align-items: start;
+        flex-direction: column;
     }
 }
