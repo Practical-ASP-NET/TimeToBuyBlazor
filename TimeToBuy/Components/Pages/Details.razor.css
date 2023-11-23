@@ -67,6 +67,7 @@ button, .cartButton {
 }
 
 /* Styles for screens with max width of 768px */
+/* Styles for screens with max width of 768px */
 @media screen and (min-width: 992px) {
     .container {
         flex-direction: row;
