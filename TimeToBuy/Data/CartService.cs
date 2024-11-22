@@ -21,19 +21,29 @@ public class CartService
     {
         var cart = Session?.Get<Cart>("Cart") ?? new Cart
         {
-            Items = new List<CartItem>
-            {
+            Items =
+            [
                 new CartItem
                 {
                     Quantity = 4,
                     ProductId = 1,
                     ProductName = "Test product",
                     UnitPrice = 100,
-                    LinePrice = 100*4
+                    LinePrice = 100 * 4
                 }
-            }
+            ]
         };
         return cart;
     }
-}
 
+    public async Task Checkout(CartCheckoutInfo cartCheckoutInfo)
+    {
+        var cart = GetCart();
+        
+        // process/store order would go here
+        // add items from cart, along with captured user details to an order record
+        
+        Session?.Remove("Cart");
+            
+    }
+}
