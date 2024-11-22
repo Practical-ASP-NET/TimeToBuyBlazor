@@ -1,12 +1,16 @@
-main {
-    
+h1 a {
+    color: #ffffff;
+    text-decoration: none; /* remove underline */
 }
 
 nav {
     background-color: #3f3f3f;
     padding: 0.2em 1em 0.2em 1em;
     color: white;
-    margin-bottom: 1em;
+}
+
+article {
+    padding: 1em;
 }
 
 #blazor-error-ui {
