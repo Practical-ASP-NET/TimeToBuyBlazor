@@ -4,3 +4,5 @@ debug/
 .vs
 *.db-shm
 *.db-wal
+bin
+*.user
