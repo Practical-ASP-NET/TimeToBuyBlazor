@@ -6,7 +6,7 @@
 
 <section class="checkout">
     <EditForm Model="@Info" FormName="Checkout" OnValidSubmit="@HandleSubmit">
-        <DataAnnotationsValidator/>
+        <ObjectGraphDataAnnotationsValidator />
         <section>
             <h3>Delivery Address</h3>
             <label>
